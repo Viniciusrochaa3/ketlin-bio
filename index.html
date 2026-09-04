@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KETLIN LEMOS | Todas as casas que eu jogo</title>
+<meta name="description" content="Confira todas as casas que eu jogo 🚀 — LOTTU BET, ONABET, ESPORTES DA SORTE, NOVIBET e o canal no Telegram.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="KETLIN LEMOS | Todas as casas que eu jogo">
+<meta property="og:description" content="Confira todas as casas que eu jogo 🚀">
+<meta property="og:image" content="assets/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/icons/lottubet.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;
+    --card:#0c0910;
+    --card-hover:#150e1c;
+    --line:rgba(255,255,255,.09);
+    --line-hot:rgba(178,72,255,.48);
+    --txt:#ffffff;
+    --muted:#9a93a3;
+    --violet:#b248ff;
+    --violet-2:#d79bff;
+    --magenta:#8a1fd8;
+    --glow:0 0 28px rgba(178,72,255,.38);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    min-height:100dvh;
+    overflow-x:hidden;
+    position:relative;
+  }
+  /* ambiente / glows de fundo */
+  body::before,body::after{
+    content:'';position:fixed;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none;
+  }
+  body::before{width:70vw;height:70vw;max-width:520px;max-height:520px;top:-18vh;left:-22vw;background:rgba(178,72,255,.20);animation:drift 16s ease-in-out infinite alternate}
+  body::after{width:60vw;height:60vw;max-width:460px;max-height:460px;bottom:-14vh;right:-20vw;background:rgba(138,31,216,.20);animation:drift 20s ease-in-out infinite alternate-reverse}
+  @keyframes drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(6%,7%,0)}}
+
+  .wrap{
+    position:relative;z-index:1;
+    width:100%;max-width:520px;margin:0 auto;
+    padding:0 0 40px;
+  }
+  .pad{padding:0 18px}
+
+  /* ---------- HERO / ARTE ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:#000;
+    animation:fadeIn .8s ease both;
+  }
+  .hero img{
+    display:block;width:100%;height:auto;
+    /* a arte tem 1024x1536, mas os ~215px finais são cena vazia.
+       Cortamos embaixo até 1320 — o nome "Ketlin Lemos" acaba em y=1250,
+       então ele fica inteiro, com folga. Mexa só neste número pra
+       subir/descer a legenda e os links em relação à foto. */
+    aspect-ratio:1024/1320;object-fit:cover;object-position:50% 0;
+  }
+  /* degradê que dissolve a arte no preto da página */
+  .hero::after{
+    content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(to bottom,
+      transparent 76%,
+      rgba(0,0,0,.10) 90%,      /* logo acima da coroa (y1156) */
+      rgba(0,0,0,.20) 95.5%,    /* fim do nome (y1254) — quase não escurece */
+      rgba(0,0,0,.80) 99%,
+      #000 100%);
+  }
+  /* brilho que passa pela arte */
+  .hero .shine{
+    position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.13) 48%,transparent 60%);
+    transform:translateX(-120%);
+    animation:shine 6.5s ease-in-out 1.2s infinite;
+  }
+  @keyframes shine{0%{transform:translateX(-120%)}45%,100%{transform:translateX(120%)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+  /* ---------- LEGENDA (logo abaixo da foto) ---------- */
+  .legenda{
+    margin:-2px 0 0;
+    text-align:center;
+    font-size:19px;
+    font-weight:800;
+    letter-spacing:-.2px;
+    line-height:1.35;
+    position:relative;z-index:4;
+    text-shadow:0 0 26px rgba(178,72,255,.35);
+    animation:rise .7s cubic-bezier(.2,.8,.2,1) .25s both;
+  }
+  .legenda .em{
+    background:linear-gradient(90deg,var(--violet),var(--violet-2),#fff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  /* ---------- SOCIAL ---------- */
+  .socials{
+    display:flex;justify-content:center;gap:14px;
+    margin:12px 0 14px;
+    position:relative;z-index:4;
+    animation:rise .7s cubic-bezier(.2,.8,.2,1) .32s both;
+  }
+  .socials a{
+    width:42px;height:42px;display:grid;place-items:center;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    color:#fff;transition:.25s ease;
+  }
+  .socials a:hover{
+    border-color:var(--line-hot);
+    background:rgba(178,72,255,.16);
+    box-shadow:var(--glow);
+    transform:translateY(-2px);
+  }
+  .socials svg{width:21px;height:21px}
+
+  /* ---------- LINKS ---------- */
+  .links{
+    display:flex;flex-direction:column;gap:12px;
+    position:relative;z-index:4;
+  }
+  .link{
+    --d:0ms;
+    display:flex;align-items:center;gap:14px;
+    padding:12px 16px 12px 12px;
+    border-radius:16px;
+    background:var(--card);
+    border:1px solid var(--line);
+    text-decoration:none;color:inherit;
+    position:relative;overflow:hidden;
+    transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .22s,background .22s,box-shadow .22s;
+    animation:rise .6s cubic-bezier(.2,.8,.2,1) var(--d) both;
+  }
+  .link::before{
+    content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,var(--violet),var(--magenta));
+    opacity:0;transition:opacity .22s;
+  }
+  .link:hover,.link:active{
+    background:var(--card-hover);
+    border-color:var(--line-hot);
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 22px rgba(178,72,255,.22);
+  }
+  .link:hover::before{opacity:1}
+  .link .ico{
+    flex:0 0 auto;width:52px;height:52px;border-radius:12px;
+    overflow:hidden;background:#000;border:1px solid var(--line);
+    display:grid;place-items:center;
+  }
+  .link .ico img{width:100%;height:100%;object-fit:cover;display:block}
+  .link .txt{flex:1 1 auto;min-width:0}
+  .link .t{
+    display:block;
+    font-size:14.5px;font-weight:800;letter-spacing:.2px;
+    text-transform:uppercase;line-height:1.25;
+  }
+  .link .tag{
+    display:inline-block;margin-left:7px;vertical-align:1.5px;
+    font-size:9.5px;font-weight:800;letter-spacing:.4px;
+    padding:2px 6px;border-radius:5px;
+    color:#e9c9ff;background:rgba(178,72,255,.16);
+    border:1px solid rgba(178,72,255,.36);
+  }
+  .link .s{display:block;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.3}
+  .link .arw{flex:0 0 auto;color:#4d4757;transition:.22s}
+  .link:hover .arw{color:var(--violet);transform:translateX(3px)}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+  /* ---------- MODAL +18 ---------- */
+  .ov{
+    position:fixed;inset:0;z-index:60;
+    display:none;place-items:center;
+    padding:20px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  }
+  .ov.on{display:grid;animation:fade .25s ease both}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal{
+    width:100%;max-width:360px;
+    background:linear-gradient(170deg,#150f1c,#09060d);
+    border:1px solid rgba(178,72,255,.3);
+    border-radius:22px;
+    padding:28px 22px 22px;
+    text-align:center;
+    box-shadow:0 30px 80px rgba(0,0,0,.8),0 0 40px rgba(178,72,255,.22);
+    animation:pop .32s cubic-bezier(.2,.9,.25,1.05) both;
+  }
+  @keyframes pop{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
+  .badge18{
+    width:66px;height:66px;margin:0 auto 16px;border-radius:50%;
+    display:grid;place-items:center;
+    font-weight:900;font-size:19px;letter-spacing:-.5px;
+    background:linear-gradient(140deg,var(--violet),var(--magenta));
+    box-shadow:0 0 30px rgba(178,72,255,.58);
+  }
+  .modal h2{margin:0 0 10px;font-size:20px;font-weight:800;letter-spacing:-.3px}
+  .modal p{margin:0 0 22px;font-size:13.5px;line-height:1.55;color:var(--muted)}
+  .modal p b{color:#fff;font-weight:800}
+  .btn{
+    display:block;width:100%;padding:14px;border-radius:13px;
+    font-family:inherit;font-size:14.5px;font-weight:800;
+    border:0;cursor:pointer;transition:.2s ease;
+  }
+  .btn:focus{outline:none}
+  .btn:focus-visible{outline:2px solid rgba(255,255,255,.6);outline-offset:3px}
+  .btn-yes{
+    background:linear-gradient(90deg,var(--violet),var(--magenta));
+    color:#fff;box-shadow:0 0 24px rgba(178,72,255,.42);
+    margin-bottom:10px;
+  }
+  .btn-yes:hover{filter:brightness(1.12);transform:translateY(-1px)}
+  .btn-no{
+    background:transparent;color:var(--muted);
+    border:1px solid var(--line);
+  }
+  .btn-no:hover{color:#fff;border-color:rgba(255,255,255,.24)}
+
+  /* ---------- RODAPÉ / SSL ---------- */
+  .footer{margin-top:30px;text-align:center}
+  .ssl{
+    display:inline-flex;align-items:center;gap:11px;
+    padding:11px 16px;border-radius:14px;
+    background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+    border:1px solid rgba(46,213,115,.28);
+    box-shadow:0 0 24px rgba(46,213,115,.10);
+    text-align:left;
+  }
+  .ssl .lock{
+    width:32px;height:32px;flex:0 0 auto;border-radius:9px;
+    display:grid;place-items:center;
+    background:rgba(46,213,115,.14);color:#2ed573;
+  }
+  .ssl .lock svg{width:17px;height:17px}
+  .ssl .l1{font-size:11.5px;font-weight:800;color:#2ed573;letter-spacing:.2px;line-height:1.2}
+  .ssl .l2{font-size:10.5px;color:var(--muted);margin-top:2px;line-height:1.2}
+  .ssl.insecure{border-color:rgba(255,255,255,.12);box-shadow:none}
+  .ssl.insecure .lock{background:rgba(255,255,255,.07);color:var(--muted)}
+  .ssl.insecure .l1{color:var(--muted)}
+
+  .disclaimer{
+    margin-top:16px;font-size:10.5px;line-height:1.6;color:#5f5869;
+    max-width:400px;margin-left:auto;margin-right:auto;
+  }
+  .disclaimer .p18{
+    display:inline-block;font-weight:900;color:#d79bff;
+    border:1px solid rgba(178,72,255,.32);border-radius:5px;
+    padding:1px 5px;margin-right:4px;
+  }
+  @media (max-width:400px){
+    .pad{padding:0 14px}
+    .legenda{font-size:17px}
+    .link .ico{width:48px;height:48px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ARTE (full-bleed) -->
+  <header class="hero">
+    <img src="assets/hero.jpg" alt="Ketlin Lemos" width="1024" height="1536" fetchpriority="high">
+    <span class="shine"></span>
+  </header>
+
+  <!-- LEGENDA logo abaixo da foto -->
+  <p class="legenda pad">Confira todas as <span class="em">casas que eu jogo</span> 🚀</p>
+
+  <!-- SOCIAL -->
+  <div class="socials">
+    <a href="https://instagram.com/ketlin.bet" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+
+  <!-- LINKS -->
+  <div class="links pad" id="links"></div>
+
+  <!-- RODAPÉ -->
+  <div class="footer pad">
+    <div class="ssl" id="ssl">
+      <div class="lock">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="10.5" width="17" height="11" rx="2.5"/><path d="M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5"/></svg>
+      </div>
+      <div>
+        <div class="l1" id="sslTitle">CONEXÃO SEGURA · CERTIFICADO SSL</div>
+        <div class="l2" id="sslSub">Seus dados são protegidos por criptografia TLS</div>
+      </div>
+    </div>
+    <p class="disclaimer">
+      <span class="p18">+18</span> Apostas são proibidas para menores de 18 anos. Jogue com responsabilidade.
+      Apostar pode causar dependência. Se precisar de ajuda, procure apoio especializado.
+    </p>
+  </div>
+</div>
+
+<!-- MODAL +18 -->
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="ovTitle">
+  <div class="modal">
+    <div class="badge18">+18</div>
+    <h2 id="ovTitle">Você tem 18 anos ou mais?</h2>
+    <p>Você está indo para <b id="ovCasa">—</b>.<br>Apostas são <b>proibidas para menores de 18 anos</b>.</p>
+    <button class="btn btn-yes" id="ovYes" type="button">Sim, tenho 18 anos ou mais</button>
+    <button class="btn btn-no" id="ovNo" type="button">Não, sou menor de 18</button>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   LINKS — exatamente as mesmas URLs do Beacons da Ketlin,
+   na mesma ordem, sem nenhuma alteração.
+   gate:true  -> abre o pop-up +18 com o nome da casa
+   ========================================================= */
+const LINKS = [
+  { titulo:"LOTTU BET",         sub:"Jogue em plataforma regulamentada", url:"https://www.lottu.bet.br/register?affiliate_id=69867591204a87000a118f34&ngx_campaign_id=6989efda543f10002847f325&ngx_source_id=ket&utm_campaign=ket", img:"assets/icons/lottubet.png",        gate:true,  casa:"LOTTU BET", tag:"REGULAMENTADA" },
+  { titulo:"ONABET",            sub:"Jogue em plataforma regulamentada", url:"https://onabet.cxclick.com/visit/?bta=122126&brand=onabet&utm_campaign=ket",                                                                                   img:"assets/icons/onabet.png",          gate:true,  casa:"ONABET", tag:"REGULAMENTADA" },
+  { titulo:"ESPORTES DA SORTE", sub:"Jogue em plataforma regulamentada", url:"https://go.aff.esportesdasorte.bet.br/nan5y1w7?campaign_id=28849&utm_campaign=ket",                                                                            img:"assets/icons/esportesdasorte.webp", gate:true,  casa:"ESPORTES DA SORTE", tag:"REGULAMENTADA" },
+  { titulo:"NOVIBET",           sub:"Jogue em plataforma regulamentada", url:"https://rt.novibet.partners/o/AKaX3F?site_id=1022923",                                                                                                         img:"assets/icons/novibet.webp",         gate:true,  casa:"NOVIBET", tag:"REGULAMENTADA" },
+  { titulo:"CANAL NO TELEGRAM", sub:"Os canais são adicionados no seu Telegram", url:"https://t.me/addlist/CvcgyjK97_c2NDgx",                                                                                                                img:"assets/icons/telegram.png",         gate:false }
+];
+
+const ARROW = '<svg class="arw" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+document.getElementById('links').innerHTML = LINKS.map((l,i) => `
+  <a class="link" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer sponsored"
+     style="--d:${120 + i*55}ms"
+     ${l.gate ? `data-gate="1" data-casa="${esc(l.casa)}"` : ''}>
+    <span class="ico"><img src="${esc(l.img)}" alt="" loading="lazy"></span>
+    <span class="txt">
+      <span class="t">${esc(l.titulo)}${l.tag ? `<span class="tag">${esc(l.tag)}</span>` : ''}</span>
+      <span class="s">${esc(l.sub)}</span>
+    </span>
+    ${ARROW}
+  </a>
+`).join('');
+
+/* ---------- POP-UP +18 ---------- */
+const ov = document.getElementById('ov');
+const ovCasa = document.getElementById('ovCasa');
+const ovYes = document.getElementById('ovYes');
+const ovNo  = document.getElementById('ovNo');
+let alvo = null;
+
+function jaConfirmou(){
+  try { return sessionStorage.getItem('idade18') === 'ok'; } catch(e){ return false; }
+}
+function marcarConfirmado(){
+  try { sessionStorage.setItem('idade18','ok'); } catch(e){}
+}
+
+document.getElementById('links').addEventListener('click', e => {
+  const a = e.target.closest('a.link');
+  if (!a || !a.dataset.gate) return;
+  if (jaConfirmou()) return;              // já confirmou nesta visita → segue direto
+  e.preventDefault();
+  alvo = a.href;
+  ovCasa.textContent = a.dataset.casa;    // nome da casa muda aqui
+  ov.classList.add('on');
+  ovYes.focus();
+});
+
+ovYes.addEventListener('click', () => {
+  marcarConfirmado();
+  ov.classList.remove('on');
+  if (alvo) window.open(alvo, '_blank', 'noopener');
+  alvo = null;
+});
+ovNo.addEventListener('click', () => { ov.classList.remove('on'); alvo = null; });
+ov.addEventListener('click', e => { if (e.target === ov){ ov.classList.remove('on'); alvo = null; } });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && ov.classList.contains('on')){ ov.classList.remove('on'); alvo = null; } });
+
+/* ---------- SELO SSL ---------- */
+(function(){
+  const box = document.getElementById('ssl');
+  if (location.protocol === 'https:') {
+    document.getElementById('sslSub').textContent = 'Criptografia TLS ativa em ' + location.hostname;
+  } else {
+    box.classList.add('insecure');
+    document.getElementById('sslTitle').textContent = 'PRÉ-VISUALIZAÇÃO LOCAL';
+    document.getElementById('sslSub').textContent = 'O selo SSL fica ativo quando publicado em HTTPS';
+  }
+})();
+</script>
+</body>
+</html>
