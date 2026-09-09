@@ -233,6 +233,17 @@
 
   /* ---------- RODAPÉ / SSL ---------- */
   .footer{margin-top:30px;text-align:center}
+  /* aviso legal obrigatorio — fica acima do selo de SSL */
+  .aviso-fazenda{
+    display:block;margin:0 0 14px;
+    padding:10px 14px;border-radius:12px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.14);
+    font-size:11px;font-weight:700;line-height:1.45;
+    letter-spacing:.3px;text-transform:uppercase;
+    color:#cfc7d8;
+  }
+  .aviso-fazenda b{color:#fff;font-weight:800}
   .ssl{
     display:inline-flex;align-items:center;gap:11px;
     padding:11px 16px;border-radius:14px;
@@ -297,6 +308,7 @@
 
   <!-- RODAPÉ -->
   <div class="footer pad">
+    <p class="aviso-fazenda">Ministério da Fazenda adverte: <b>Aposta não é investimento</b></p>
     <div class="ssl" id="ssl">
       <div class="lock">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="10.5" width="17" height="11" rx="2.5"/><path d="M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5"/></svg>
